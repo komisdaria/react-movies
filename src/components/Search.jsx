@@ -1,0 +1,101 @@
+import React, { useState } from "react";
+
+const Search = ({ searchMovies }) => {
+  const [search, setSearch] = useState('');
+  const [type, setType] = useState('all');
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearch(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const handleKey = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      searchMovies(search, type);
+    }
+  };
+
+  const handleFilter = (event) => {
+    event.preventDefault()
+    // setType(event.target.dataset.type);
+    // console.log(event.target.value);
+    // setType(event.target.value);
+    // // console.log('check type', type);
+    // console.log('type ', type);
+    // searchMovies(search);
+
+    if (event.target.checked) {
+      console.log(event.target.value);
+      setType(event.target.value);
+      searchMovies(search, type)
+    }
+
+  };
+
+  return (
+    <div className="row">
+      <div className="input-field ">
+        <input
+          placeholder="search"
+          type="search"
+          className="validate"
+          value={search}
+          onChange={handleSearch}
+          onKeyDown={handleKey}
+        />
+        <button
+          className="btn search-btn"
+          onClick={() => searchMovies(search, type)}
+        >
+          Search
+        </button>
+        <div>
+          <label>
+            <input
+              className="with-gap"
+              name="type"
+              type="radio"
+              data-type="all"
+              value='all'
+              onChange={handleFilter}
+              checked={type === 'all' }
+              
+            />
+            <span>All categories</span>
+          </label>
+
+          <label>
+            <input
+              className="with-gap"
+              name="type"
+              type="radio"
+              data-type="movie"
+              value="movie"
+              onChange={handleFilter}
+              checked={type === 'movie' }
+            />
+            <span>Movies only</span>
+          </label>
+
+          <label>
+            <input
+              className="with-gap"
+              name="type"
+              type="radio"
+              value="series"
+              data-type="series"
+              onChange={handleFilter}
+              checked={type === 'series' ? true : false }
+
+            />
+            <span>Series only</span>
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Search;

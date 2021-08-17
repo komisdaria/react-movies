@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// import Book from './components/Book';
+import Preloader from './components/Preloader';
+// import Form from './components/Form';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import Main from './components/layout/Main';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+function App(props) {
+  return props.isLoad ? <Preloader /> : (
+    <>
+      <Header />
+      {/* <Form />
+      <Book name='JS' year='2020' price='1200' />
+      <Book name='React' year='2021' price='800' /> */}
+      <Main />
+      <Footer />
+    </>
   );
 }
 
