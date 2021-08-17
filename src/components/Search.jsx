@@ -1,53 +1,47 @@
 import React, { useState } from "react";
 
 const Search = ({ searchMovies }) => {
+
   const [search, setSearch] = useState('');
   const [type, setType] = useState('all');
 
-  const handleSearch = (event) => {
-    event.preventDefault();
-    setSearch(event.target.value);
-    console.log(event.target.value);
-  };
+  // const handleSearch = (event) => {
+  //   setSearch(event.target.value);
+  //   console.log(event.target.value);
+  // };
 
   const handleKey = (event) => {
-    event.preventDefault();
     if (event.key === "Enter") {
-      event.preventDefault();
       searchMovies(search, type);
     }
   };
 
   const handleFilter = (event) => {
     event.preventDefault();
-    // setType(event.target.dataset.type);
-    // console.log(event.target.value);
-    // setType(event.target.value);
-    // // console.log('check type', type);
-    // console.log('type ', type);
-    // searchMovies(search);
+    setType(event.target.dataset.type);
+    searchMovies(search, event.target.dataset.type);
 
-    if (event.target.checked) {
-      console.log(event.target.value);
-      setType(event.target.value);
-      searchMovies(search, type)
-    }
+    // if (event.target.checked) {
+    //   console.log(event.target.value);
+    //   setType(event.target.value);
+    //   searchMovies(search, type)
+    // }
 
   };
 
   return (
     <div className="row">
-      <div className="input-field ">
+      <div className="input-field "> 
         <input
+          className="validate"
           placeholder="search"
           type="search"
-          className="validate"
           value={search}
-          onChange={handleSearch}
+          onChange={(e) => setSearch(e.target.value)}
           onKeyDown={handleKey}
         />
         <button
-          className="btn search-btn"
+          className="btn search-btn yellow darken-3"
           onClick={() => searchMovies(search, type)}
         >
           Search
@@ -61,8 +55,7 @@ const Search = ({ searchMovies }) => {
               data-type="all"
               value='all'
               onChange={handleFilter}
-              checked={type === 'all' }
-              
+              checked={type === 'all'}
             />
             <span>All categories</span>
           </label>
@@ -88,7 +81,8 @@ const Search = ({ searchMovies }) => {
               value="series"
               data-type="series"
               onChange={handleFilter}
-              checked={type === 'series' ? true : false }
+              // checked={type === 'series' ? true : false } по умолчанию выдает тру или фолс
+              checked={type === 'series'}
 
             />
             <span>Series only</span>

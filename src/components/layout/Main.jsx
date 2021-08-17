@@ -4,7 +4,6 @@ import PreloaderLoad from '../PreloaderLoad';
 import Search from '../Search';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-console.log(API_KEY);
 
 const Main = () => {
    
@@ -12,7 +11,7 @@ const Main = () => {
   const [ loading, setLoading ] = useState(true);
 
   const getApi = async () => {
-   const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=matrix`);
+   const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=avengers`);
 
    const newData = await response.json();
   //  console.log(newData.Search); // достучаться до массива
