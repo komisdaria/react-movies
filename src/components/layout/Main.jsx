@@ -12,7 +12,7 @@ const Main = () => {
   const [ loading, setLoading ] = useState(true);
 
   const getApi = async () => {
-   const response = await fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=matrix`);
+   const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=matrix`);
 
    const newData = await response.json();
   //  console.log(newData.Search); // достучаться до массива
@@ -22,7 +22,7 @@ const Main = () => {
 
   const searchMovies = async (str, type = 'all') => {
     setLoading(true);
-    const response = await fetch(`http://www.omdbapi.com/?apikey=a77d32e7&s=${str}${type !== 'all' ? `&type=${type}` : ''}`);
+    const response = await fetch(`https://www.omdbapi.com/?apikey=a77d32e7&s=${str}${type !== 'all' ? `&type=${type}` : ''}`);
     const newData = await response.json();
    //  console.log(newData.Search); // достучаться до массива
     setMovies(newData.Search);
