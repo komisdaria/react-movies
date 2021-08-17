@@ -11,6 +11,7 @@ const Search = ({ searchMovies }) => {
   };
 
   const handleKey = (event) => {
+    event.preventDefault();
     if (event.key === "Enter") {
       event.preventDefault();
       searchMovies(search, type);
@@ -18,7 +19,7 @@ const Search = ({ searchMovies }) => {
   };
 
   const handleFilter = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     // setType(event.target.dataset.type);
     // console.log(event.target.value);
     // setType(event.target.value);
