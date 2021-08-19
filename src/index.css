@@ -37,3 +37,11 @@ nav {
 label:not(last-child) { 
   margin-right: 5rem;
 }
+
+h2 {
+  margin: 0px;
+}
+
+.logo {
+  padding-left: 40rem;
+}

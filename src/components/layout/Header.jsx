@@ -5,7 +5,7 @@ const Header = () => {
     <>
     <nav className='orange darken-3'>
     <div className="nav-wrapper">
-      <a href="#" className="brand-logo">React Movies</a>
+      <h2>React Movies</h2>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         {/* <li><a href="!#">Repo?</a></li> */}
       </ul>
