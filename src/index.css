@@ -38,10 +38,20 @@ label:not(last-child) {
   margin-right: 5rem;
 }
 
-h2 {
+h2, h1 {
   margin: 0px;
 }
 
 .logo {
-  padding-left: 40rem;
+  padding-left: 40%;
+}
+ 
+.header {
+  height: 6rem;
+}
+
+.logo-header {
+  padding-top: 5px;
+  height: 85px;
+  width: 110px;
 }

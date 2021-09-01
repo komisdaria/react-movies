@@ -1,14 +1,16 @@
 import React from 'react';
+import LogoHeader from './img/LogoHeader';
 
 const Header = () => {
   return ( 
     <>
-    <nav className='orange darken-3'>
+    <nav className='header orange darken-3'>
     <div className="nav-wrapper">
-      <h2>React Movies</h2>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
+      <ul id="nav-mobile" className="left hide-on-med-and-down">
+      <li><LogoHeader /></li>
         {/* <li><a href="!#">Repo?</a></li> */}
       </ul>
+      <h1>React Movies</h1>
     </div>
   </nav>
     </>
